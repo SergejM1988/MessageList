@@ -1,13 +1,9 @@
 import React, { useEffect } from "react"
 import { useState } from "react"
-import styles from './App.module.css'
 import uuid from 'react-uuid'
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import F
-
-
-function App () {
+export function Form (props) {
     const [messageList, setMessageList] = useState('');
     const [authorList, setAuthorList] = useState('');
     const [showMessage, setShowMessage] = useState([]);
@@ -16,7 +12,7 @@ function App () {
       author : ''
     };
 
-    const handleSubmit = (e) => {
+    const {handleSubmit} = (e) => {
       e.preventDefault();
        message = {
         message: messageList,
@@ -39,19 +35,18 @@ function App () {
       }
     }, [authorList])
 
-    return(
-     <>
-        <form onSubmit={handleSubmit} className = { styles.messageInput }>
-         <TextField id="outlined-basic" variant="outlined" placeholder="message"  type="text" value={messageList} onChange={e => setMessageList(e.target.value)}/>
-         <TextField id="standard-basic"  variant="standard" placeholder="author"  type="text" value={authorList} onChange={e => setAuthorList(e.target.value)}/>
-         <Button type="submit" variant="contained">Add message</Button>
-        </form>
-        <ul>
-         {showMessage.map ((item) => (
-           <li key={uuid()}>message: {item.message} author: {item.author}</li>
-         ))}
-        </ul>  
-     </>
-    )
-}
-export default App
+return(
+    <>
+       <form onSubmit={handleSubmit} className = { styles.messageInput }>
+        <TextField id="outlined-basic" variant="outlined" placeholder="message"  type="text" value={messageList} onChange={e => setMessageList(e.target.value)}/>
+        <TextField id="standard-basic"  variant="standard" placeholder="author"  type="text" value={authorList} onChange={e => setAuthorList(e.target.value)}/>
+        <Button type="submit" variant="contained">Add message</Button>
+       </form>
+       <ul>
+        {showMessage.map ((item) => (
+          <li key={uuid()}>message: {item.message} author: {item.author}</li>
+        ))}
+       </ul>  
+    </>
+   )
+}       
