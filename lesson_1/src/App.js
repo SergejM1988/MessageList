@@ -23,18 +23,18 @@ function App () {
       setMessageList('')
       setAuthorList('')
     }
-    // useEffect(() => {
-    //   if (showMessage[showMessage.length-1] !== 'BOT') {
-    //     console.log(showMessage[showMessage.length-1])
-    //     const timeout = setTimeout(() => {
-    //       setShowMessage([...showMessage, {message: 'Hello', author:'BOT'}]) 
-    //     }, 1500)
+    useEffect(() => {
+      if (showMessage[showMessage.length-1].author !== 'BOT') {
+        console.log(showMessage[showMessage.length-1])
+        const timeout = setTimeout(() => {
+          setShowMessage([...showMessage, {message: 'Hello', author:'BOT'}]) 
+        }, 1500)
           
-    //     return () => {
-    //       clearTimeout(timeout)
-    //     }
-    //   }
-    // }, [showMessage])
+        return () => {
+          clearTimeout(timeout)
+        }
+      }
+    }, [showMessage])
 
     return(
      <>
