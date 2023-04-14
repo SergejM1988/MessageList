@@ -1,9 +1,11 @@
 import React, { useEffect } from "react"
 import { useState } from "react"
+import { useRef } from "react"
 import styles from './App.module.css'
 import uuid from 'react-uuid'
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
+import ChatList from "./components/ChatList"
 
 
 
@@ -15,6 +17,8 @@ function App () {
       message:'',
       author : ''
     };
+    const inputRef = useRef(null)
+    
 
     const handleSubmit = (e) => {
       e.preventDefault();
@@ -22,16 +26,16 @@ function App () {
         message: messageList,
         author: authorList}
       setShowMessage([...showMessage, message]) 
-      console.log(authorList)
       setMessageList('')
       setAuthorList('')
+      inputRef.current.focus();
     }
     useEffect(() => {
-      if (authorList[authorList.length-1] !== 'BOT' || authorList === '') {
-        console.log(showMessage[showMessage.length-1])
+      if (authorList[authorList.length-1] !== 'BOT') {
         const timeout = setTimeout(() => {
-          setShowMessage([...showMessage, {message: 'Hello', author:'BOT'}]) 
+          setShowMessage([...showMessage, {message: 'Input your message', author:'BOT'}]) 
         }, 1500)
+        
           
         return () => {
           clearTimeout(timeout)
@@ -41,16 +45,21 @@ function App () {
 
     return(
      <>
+     <div className = { styles.chatWindow }>
+        <div className = { styles.form }>
         <form onSubmit={handleSubmit} className = { styles.messageInput }>
-         <TextField id="outlined-basic" variant="outlined" placeholder="message"  type="text" value={messageList} onChange={e => setMessageList(e.target.value)}/>
+         <TextField ref = {inputRef} id="outlined-basic" variant="outlined" placeholder="message"  type="text" value={messageList} onChange={e => setMessageList(e.target.value)}/>
          <TextField id="standard-basic"  variant="standard" placeholder="author"  type="text" value={authorList} onChange={e => setAuthorList(e.target.value)}/>
          <Button type="submit" variant="contained">Add message</Button>
         </form>
         <ul>
          {showMessage.map ((item) => (
-           <li key={uuid()}>message: {item.message} author: {item.author}</li>
+           <li key={uuid()}>MESSAGE: {item.message} AUTHOR: {item.author}</li>
          ))}
-        </ul>  
+        </ul> 
+        </div>
+        <ChatList /> 
+        </div>
      </>
     )
 }
