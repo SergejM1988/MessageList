@@ -4,21 +4,23 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import CommentIcon from '@mui/icons-material/Comment';
 import IconButton from '@mui/material/IconButton';
-export default function ChatList () {
+import uuid from 'react-uuid'
+
+export default function ChatList (props) {
     return (
        <>
        <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
-      {[1, 2, 3].map((value) => (
+      {[props.chat].map((item) => (
         <ListItem
-          key={value}
+          key={uuid()}
           disableGutters
           secondaryAction={
             <IconButton aria-label="comment">
               <CommentIcon />
-            </IconButton>
+            </IconButton>   
           }
         >
-          <ListItemText primary={`Chat ${value}`} />
+          <ListItemText primary={`Chat name ${props.chat}`} />
         </ListItem>
       ))}
     </List>
