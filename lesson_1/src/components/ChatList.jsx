@@ -20,7 +20,7 @@ export default function ChatList (props) {
             </IconButton>   
           }
         >
-          <ListItemText primary={`Chat name ${props.chat}`} />
+          <ListItemText primary={`Chat name ${props.name}`} />
         </ListItem>
       ))}
     </List>

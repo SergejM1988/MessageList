@@ -5,6 +5,7 @@ import uuid from 'react-uuid'
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import styles from './MessageInput.module.css'
+import ChatList from "./ChatList";
 
 
 
@@ -32,7 +33,7 @@ export default function MessageList () {
     useEffect(() => {
       if (authorList[authorList.length-1] !== 'BOT') {
         const timeout = setTimeout(() => {
-          setShowMessage([...showMessage, {message: 'Input your message', author:'BOT'}]) 
+          setShowMessage([...showMessage, {message: 'Input your first message', author:'BOT'}]) 
         }, 1500)
         
           
@@ -41,6 +42,7 @@ export default function MessageList () {
         }
       }
     }, [authorList])
+
 
     return(
      <>
@@ -51,10 +53,12 @@ export default function MessageList () {
         </form>
         <ul>
          {showMessage.map ((item) => (
-           <li key={uuid()}>MESSAGE: {item.message} AUTHOR: {item.author}</li>
+           <li key={uuid()}>MESSAGE: {item.message} AUTHOR: { item.author !== ''? item.author : item.author = 'User' }</li>
          ))}
-        </ul> 
+        </ul>
+        <ChatList name = {authorList[authorList.length-1]}/> 
      </>
+
      
     )
 }

@@ -1,0 +1,15 @@
+.header ul {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 10px;
+    list-style-type: none;
+    justify-content: center;
+}
+.header ul li {
+    text-decoration: none;
+}
+.header {
+    background-color: rgb(53, 153, 53);
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

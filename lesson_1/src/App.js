@@ -1,10 +1,10 @@
 import React from "react"
-import ChatList from "./components/ChatList"
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { green, purple } from '@mui/material/colors';
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MessageInput from "./components/MessageInput"
 import Profile from "./components/Profile";
+import Header from "./components/Header";
 
 
 
@@ -22,17 +22,19 @@ function App () {
       });
 
     return(
-     <>
-     <BrowserRouter>
-     <ThemeProvider theme={theme}>
-        
-        <MessageInput />
-        <ChatList/>
-        <Profile />
-        
+    <>
+    <BrowserRouter>
+    <ThemeProvider theme={theme}>
+      <Header/>
+        <Routes>
+        <Route path='/chatlist' element = {<MessageInput />} />
+         <Route path='/profile' element = {<Profile />}/> 
+        </Routes>
+         
         </ThemeProvider>
-     </BrowserRouter>
-     </>
+    </BrowserRouter>
+     
+    </>
     )
 }
 export default App
