@@ -30,7 +30,6 @@ function App () {
         <Route path='/chatlist' element = {<MessageInput />} />
          <Route path='/profile' element = {<Profile />}/> 
         </Routes>
-         
         </ThemeProvider>
     </BrowserRouter>
      

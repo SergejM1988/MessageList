@@ -5,7 +5,7 @@
     list-style-type: none;
     justify-content: center;
 }
-.header ul li {
+.header ul li NavLink {
     text-decoration: none;
 }
 .header {
