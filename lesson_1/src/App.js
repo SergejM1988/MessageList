@@ -5,6 +5,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MessageInput from "./components/MessageInput"
 import Profile from "./components/Profile";
 import Header from "./components/Header";
+import { Provider } from "react-redux";
+import store from "./store/store";
 
 
 
@@ -23,6 +25,7 @@ function App () {
 
     return(
     <>
+    <Provider store = {store}>
     <BrowserRouter>
     <ThemeProvider theme={theme}>
       <Header/>
@@ -32,6 +35,7 @@ function App () {
         </Routes>
         </ThemeProvider>
     </BrowserRouter>
+    </Provider>
      
     </>
     )
