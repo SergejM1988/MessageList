@@ -1,4 +1,4 @@
-import { exampleAction } from "./actions";
+import { exampleAction } from './actions'
 
 const initialState = {
     showName : false,
@@ -6,12 +6,13 @@ const initialState = {
 }
 
 export const profileReducer = (state = initialState, action) => {
+    // eslint-disable-next-line default-case
     switch (action.type) {
-        case EXAMPLE_ACTION:
+        case exampleAction:
             return {
                 ...state,
                 showName: !state.showName
             }
-            return state;
+            default: return state;
     }
 }
