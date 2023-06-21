@@ -1,14 +1,13 @@
-import { exampleAction } from './actions'
+import { TOGGLE_SHOWNAME} from './actions'
 
 const initialState = {
     showName : false,
-    name : 'Default'
+    name : 'Sergio'
 }
 
 export const profileReducer = (state = initialState, action) => {
-    // eslint-disable-next-line default-case
     switch (action.type) {
-        case exampleAction:
+        case TOGGLE_SHOWNAME:
             return {
                 ...state,
                 showName: !state.showName

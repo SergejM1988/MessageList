@@ -1,4 +1,4 @@
-const EXAMPLE_ACTION = "EXAMPLE_ACTION";
-export const exampleAction = {
-type: EXAMPLE_ACTION
+export const TOGGLE_SHOWNAME = "TOGGLE_SHOWNAME";
+export const toggleShowName = {
+type: TOGGLE_SHOWNAME
 }
