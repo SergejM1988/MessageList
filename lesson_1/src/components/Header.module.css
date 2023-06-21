@@ -1,15 +1,16 @@
 .header ul {
     display: flex;
     flex-direction: row-reverse;
-    gap: 10px;
+    gap: 20px;
     list-style-type: none;
     justify-content: center;
-}
-.header ul li NavLink {
-    text-decoration: none;
+    font-size: 25px;
 }
 .header {
     background-color: rgb(53, 153, 53);
     padding-top: 10px;
     padding-bottom: 10px;
+}
+.header a {
+    text-decoration: none;
 }

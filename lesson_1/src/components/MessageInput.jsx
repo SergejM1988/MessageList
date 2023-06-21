@@ -41,7 +41,7 @@ export default function MessageList () {
           clearTimeout(timeout)
         }
       }
-    }, [authorList])
+    }, [authorList, showMessage])
 
 
     return(

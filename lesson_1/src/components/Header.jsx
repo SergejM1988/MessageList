@@ -7,9 +7,9 @@ export default function Header () {
         
         <header className = {styles.header} >
           <ul>
-            <li><NavLink style={({isActive}) => ({color : isActive ? 'black' : 'blue'})} to ='profile'>Profile</NavLink ></li>
-            <li><NavLink style={({isActive}) => ({color : isActive ? 'black' : 'blue'})} to ='chatlist'>Chatlist</NavLink ></li>
-            <li><NavLink style={({isActive}) => ({color : isActive ? 'black' : 'blue'})} to ='/'>Home</NavLink ></li>
+            <li><NavLink style={({isActive}) => ({color : isActive ? 'black' : 'white'})} to ='profile'>Profile</NavLink ></li>
+            <li><NavLink style={({isActive}) => ({color : isActive ? 'black' : 'white'})} to ='chatlist'>Chatlist</NavLink ></li>
+            <li><NavLink style={({isActive}) => ({color : isActive ? 'black' : 'white'})} to ='/'>Home</NavLink ></li>
           </ul>
         </header>
     )
